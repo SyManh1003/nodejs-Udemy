@@ -1,0 +1,27 @@
+{
+  "name": "nodejs_express_hoidanit",
+  "version": "1.0.0",
+  "description": "backend nodejs hoidanit udemy",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SyManh1003/nodejs-Udemy.git"
+  },
+  "keywords": [
+    "node",
+    "js",
+    "express",
+    "mongodb"
+  ],
+  "author": {
+    "name": "Clark2412"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SyManh1003/nodejs-Udemy/issues"
+  },
+  "homepage": "https://github.com/SyManh1003/nodejs-Udemy#readme"
+}
