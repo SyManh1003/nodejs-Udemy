@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/SyManh1003/nodejs-Udemy/issues"
   },
-  "homepage": "https://github.com/SyManh1003/nodejs-Udemy#readme"
+  "homepage": "https://github.com/SyManh1003/nodejs-Udemy#readme",
+  "dependencies": {
+    "express": "5.0.1"
+  }
 }
