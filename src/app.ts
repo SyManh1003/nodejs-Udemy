@@ -10,11 +10,17 @@ const PORT = process.env.PORT || 3000;
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
-// config routes
-webRoutes(app);
+// config req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // config static files
 app.use(express.static('public'));
+
+// config routes
+webRoutes(app);
+
+
 
 app.listen(PORT, () => {
     console.log(`My app is running on Port ${PORT}`)

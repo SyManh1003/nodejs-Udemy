@@ -13,10 +13,51 @@
 </head>
 
 <body>
-    <h1>Hello from ejs from controller</h1>
-    <!-- <img src="/images/HansooHee_img.jpg" alt=""> -->
+    <div style="margin: 25px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>List Users:
+            </h1>
+            <!-- <img src="/images/HansooHee_img.jpg" alt=""> -->
 
-    <a class="btn btn-warning" href="/create-user">Create a new user</a>
+            <a class="btn btn-warning" href="/create-user">Create a new user</a>
+        </div>
+        <hr>
+        <div>
+            <table class="table table-hover table-bodered">
+                <thead>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Action</th>
+                </thead>
+                <tbody>
+                    <% users.forEach(function (user) { %>
+                        <td>
+                            <%= user.id %>
+                        </td>
+                        <td>
+                            <%= user.name %>
+                        </td>
+                        <td>
+                            <%= user.email %>
+                        </td>
+                        <td>
+                            <%= user.address %>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger">Del</button>
+                        </td>
+                        <% }) %>
+                            <tr>
+
+                            </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
 
 </body>
 
