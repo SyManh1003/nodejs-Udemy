@@ -33,25 +33,26 @@
                 </thead>
                 <tbody>
                     <% users.forEach(function (user) { %>
-                        <td>
-                            <%= user.id %>
-                        </td>
-                        <td>
-                            <%= user.name %>
-                        </td>
-                        <td>
-                            <%= user.email %>
-                        </td>
-                        <td>
-                            <%= user.address %>
-                        </td>
-                        <td>
-                            <button class="btn btn-danger">Del</button>
-                        </td>
-                        <% }) %>
-                            <tr>
+                        <tr>
+                            <td>
+                                <%= user.id %>
+                            </td>
+                            <td>
+                                <%= user.name %>
+                            </td>
+                            <td>
+                                <%= user.email %>
+                            </td>
+                            <td>
+                                <%= user.address %>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger">Del</button>
+                            </td>
+                            <% }) %>
 
-                            </tr>
+
+                        </tr>
                 </tbody>
 
             </table>
