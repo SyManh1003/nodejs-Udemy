@@ -1,3 +1,5 @@
+
+import { prisma } from "config/client";
 import getConnection from "config/database";
 
 const handleCreateUser = async (
@@ -6,39 +8,69 @@ const handleCreateUser = async (
     address: string) => {
 
     // insert into DB
-    const connection = await getConnection();
 
-    try {
-        const sql = 'INSERT INTO `users`(`name`, `email`, `address`) VALUES (?, ?, ?)';
-        const values = [fullName, email, address];
+    const newUser = await prisma.user.create({
+        data: {
+            name: fullName,
+            email: email,
+            address: address
+        }
+    });
 
-        const [result, fields] = await connection.execute(sql, values);
-        return result;
-
-    } catch (err) {
-        console.log(err);
-        return [];
-    }
-
-    // test return result
-    // console.log("insert a new user");
+    return newUser;
 
 }
 
 const getAllUsers = async () => {
-    const connection = await getConnection();
+    const users = await prisma.user.findMany();
+    return users;
 
-    // A simple SELECT query
-    try {
-        const [results, fields] = await connection.query(
-            'SELECT * FROM `users`'
-        );
-
-        return results;
-    } catch (err) {
-        console.log(err);
-        return [];
-    }
 }
 
-export { handleCreateUser, getAllUsers }
+const handleDelUser = async (id: string) => {
+
+    const delUser = await prisma.user.delete({
+        where: {
+            id: +id
+        }
+    })
+
+    return delUser;
+
+}
+
+const getUserById = async (id: string) => {
+
+    // insert into DB
+    const user = await prisma.user.findUnique({
+        where: {
+            id: +id
+        },
+    });
+
+    return user;
+
+}
+
+const updateUserById = async (
+    id: string,
+    fullName: string,
+    email: string,
+    address: string
+) => {
+    const updateUser = await prisma.user.update({
+        where: {
+            id: +id
+        },
+        data: {
+            name: fullName,
+            email: email,
+            address: address
+        },
+    });
+
+    return updateUser;
+
+}
+
+export { handleCreateUser, getAllUsers, handleDelUser, getUserById, updateUserById }
